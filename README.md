@@ -10,7 +10,7 @@ Build and tag the image "sudo docker build -t opencvcalculai ."
 
 or
 
-Install python 3.7 , opencv 4.1.0 and numpy install in your machine 
+Install python 3.7 , opencv 4.1.0 and numpy in your local machine.
 
 
 ## Download Pre-Trained Yolov3 Model file
