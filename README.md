@@ -1,4 +1,4 @@
-# calculAI_object_detection
+# calculAI_video_analysis
 
 ## Introduction
 Video analysis using Yolo and openCV library which will read video as frames and detect objects in frames.
