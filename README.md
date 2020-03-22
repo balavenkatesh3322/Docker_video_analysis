@@ -37,6 +37,6 @@ This analyse python file using Yolov3 to detect objects from videos and save obj
 
 
 ## Sample Output
-Check videos folder and json files
+I have uploaded sample json file results in videos folder.
 
 {'remote', 'cup', 'cell phone', 'person'}
