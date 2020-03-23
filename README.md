@@ -1,7 +1,7 @@
 # calculAI_video_analysis
 
 ## Introduction
-Video analysis using Yolo and openCV library which will read video as frames and detect objects in frames.
+Video analysis using Yolo and openCV library which will read video as frames and detect objects in that frames. I saved all videos files and output json file in local videos folder.
 
 ## Dependencies
 Docker image with python 3.7 and opencv 4.1.0
@@ -18,7 +18,11 @@ docker-compose up
 
 or
 
-Install python 3.7 , opencv 4.1.0 and numpy install in your machine 
+Install below required library in your local machine.
+
+1) python 3.7
+2) opencv 4.1.0
+3) numpy 
 
 
 ## Download Pre-Trained Yolov3 Model file
@@ -41,6 +45,6 @@ This analyse python file using Yolov3 to detect objects from videos and save obj
 
 
 ## Sample Output
-Check videos folder and json files
+I have uploaded sample json file results in videos folder.
 
 {'remote', 'cup', 'cell phone', 'person'}
