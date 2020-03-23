@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  webcam:
+    image: opencvcalculai:latest
+    command: "python3 webcam.py"
+    devices:
+      - /dev/video0:/dev/video0
+    environment:
+      - DISPLAY=unix$DISPLAY
+    volumes:
+      - calcul-data:/calculAI_object_detection/videos 
+      - /dev/video0:/dev/video0
+      - /tmp/.X11-unix:/tmp/.X11-unix
+  analysis:
+    image: opencvcalculai:latest
+
+volumes:
+  calcul-data:

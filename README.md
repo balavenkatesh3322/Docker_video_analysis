@@ -8,6 +8,14 @@ Docker image with python 3.7 and opencv 4.1.0
 
 Build and tag the image "sudo docker build -t opencvcalculai ."
 
+Run docker file "sudo docker run -d opencvcalculai:latest"
+
+Run this command "xhost local:root" when erro occures as "Gtk-WARNING **: 06:49:47.946: cannot open display: unix:0"
+
+docker-compose build
+
+docker-compose up 
+
 or
 
 Install python 3.7 , opencv 4.1.0 and numpy install in your machine 
