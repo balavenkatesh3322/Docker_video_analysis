@@ -11,8 +11,11 @@ services:
       - calcul-data:/calculAI_object_detection/videos 
       - /dev/video0:/dev/video0
       - /tmp/.X11-unix:/tmp/.X11-unix
+    depends_on:
+      - analysis
   analysis:
-    image: opencvcalculai:latest
+    build: './video_analysis'
+    command: "python3 manage.py runserver"
 
 volumes:
   calcul-data:
