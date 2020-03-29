@@ -1,30 +1,15 @@
+from vidgear.gears import NetGear
 import cv2
 import argparse
 import numpy as np
 import os
 
+#define netgear client with `receive_mode = True` and default settings
+client = NetGear(address = 'localhost', port = '3600', protocol = 'tcp',  pattern = 0, receive_mode = True, logging = True, **options)
 
 class_file = "config/yolov3.txt"
 weight_file = "config/yolov3.weights"
 config_file = "config/yolov3.cfg"
-
-#argument parser to read input from comment line
-
-# ap = argparse.ArgumentParser()
-# ap.add_argument('-v', '--video', required=False,
-#                 help = 'path to input video')
-# args = ap.parse_args()
-
-
-# if args.video is None:
-#     video_file_name = "videos/video_0.7177935927284033.mp4"
-#     detect_objects_from_video(video_file_name)
-# else:
-#     video_file_name = args.video
-#     detect_objects_from_video(video_file_name)
- 
-#to get file name    
-#file_name, file_extension = os.path.splitext(video_file_name)
 
 #detected object names saved in set
 object_name = set()
@@ -83,8 +68,7 @@ def save_object_names():
 
 def detect_objects_from_video(video_file_name):
     #Read video files
-    cam = cv2.VideoCapture(video_file_name)
-
+    #cam = cv2.VideoCapture(video_file_name)
 
     # frame 
     currentframe = 0
@@ -92,9 +76,10 @@ def detect_objects_from_video(video_file_name):
     while(True): 
           
         # reading from frame 
-        ret,image = cam.read() 
+        # ret,image = cam.read() 
+        frame = client.recv()
       
-        if ret: 
+        if frame is not None: 
             #file_name = create_folder_for_image() 
             file_name, file_extension = os.path.splitext(video_file_name)
             name = file_name  + "/" + str(currentframe) + '.jpg'
@@ -159,6 +144,7 @@ def detect_objects_from_video(video_file_name):
             cv2.imwrite(name, image) 
             cv2.waitKey()  
             cv2.destroyAllWindows()
+            client.close()
 
             currentframe += 1
         else:

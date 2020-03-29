@@ -1,23 +1,18 @@
-import cv2
-import datetime
-from random import random
+from vidgear.gears import VideoGear
+from vidgear.gears import NetGear
 
-#file name with random generated number
-file_name = "video_"+str(random())+".mp4"
+stream = VideoGear(source='videos/test.mp4').start() #Open any video stream
+server = NetGear(address = 'localhost', port = '8000', protocol = 'tcp',  pattern = 0, receive_mode = False, logging = True, **options)
 
-#Capture video from webcam
-vid_capture = cv2.VideoCapture(0)
-vid_cod = cv2.VideoWriter_fourcc(*'XVID')
-output = cv2.VideoWriter("videos/"+file_name, vid_cod, 10.0, (640,480))
+while True:
+    try: 
+        frame = stream.read()
+        if frame is None:
+            break
+        server.send(frame)
 
-while(True):
-     # Capture each frame of webcam video
-     ret,frame = vid_capture.read()
-     cv2.imshow("My cam video", frame)
-     output.write(frame)
-     if cv2.waitKey(1) &0XFF == ord('q'):
-         break
+    except KeyboardInterrupt:
+        break
 
-vid_capture.release()
-output.release()
-cv2.destroyAllWindows()
+stream.stop()
+writer.close()

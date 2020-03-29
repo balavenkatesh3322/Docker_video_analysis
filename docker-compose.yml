@@ -3,6 +3,8 @@ services:
   webcam:
     build: ./
     command: "python3 webcam.py"
+    ports:
+      - "3600:3600"
     devices:
       - /dev/video0:/dev/video0
     environment:

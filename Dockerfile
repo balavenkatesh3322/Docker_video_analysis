@@ -22,6 +22,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install numpy
+RUN pip install vidgear
 
 WORKDIR /
 ENV OPENCV_VERSION="4.1.0"
