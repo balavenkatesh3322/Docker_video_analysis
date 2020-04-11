@@ -1,7 +1,7 @@
-# calculAI_video_analysis
+# docker_video_analysis
 
 ## Introduction
-Video analysis using Yolo and openCV library which will read video as frames and detect objects in that frames. I saved all videos files and output json file in local videos folder.
+I have setup docker file to do Video analysis using Yolo and openCV library which will read video as frames and detect objects in that frames. I saved all videos files and output json file in local videos folder.
 
 ## Dependencies
 Docker image with python 3.7 and opencv 4.1.0
